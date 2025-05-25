@@ -25,7 +25,7 @@ def get_requirements()->List[str]:
 setup(
     name="NetworkSecurity",
     version="0.0.1",
-    author="Meghana Bhairi",
+    author="Meghana Bhairi"
     author_email="meghabhairi114@gmail.com",
     packages=find_packages(),  # Automatically find and include all packages in the project
     install_requires=get_requirements(),  # Install the required packages from requirements.txt
