@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/HP/Desktop/MLFlow/NetworkSecurity/mlruns/0/96bc538fe90d4e0e8ec3d0c7a4c8e978/artifacts
+end_time: 1749220855462
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 96bc538fe90d4e0e8ec3d0c7a4c8e978
+run_name: puzzled-dolphin-207
+run_uuid: 96bc538fe90d4e0e8ec3d0c7a4c8e978
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749220846022
+status: 3
+tags: []
+user_id: HP
