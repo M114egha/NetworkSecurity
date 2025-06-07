@@ -1,6 +1,6 @@
 import os
 import sys
-import mlflow
+
 
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
@@ -16,6 +16,11 @@ from networksecurity.utils.ml_utils.model.estimator import NetworkModel
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import (RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier)
 from sklearn.tree import DecisionTreeClassifier
+
+import mlflow
+import dagshub
+dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity', mlflow=True)  
+
 
 
 class ModelTrainer:
@@ -100,6 +105,7 @@ class ModelTrainer:
 
             network_model = NetworkModel(preprocessor=preprocessor, model=best_model)
             save_object(self.model_trainer_config.trained_model_file_path, network_model)
+            save_object("final_model/model.pkl" ,best_model)
 
             model_trainer_artifact = ModelTrainerArtifact(
                 trained_model_file_path=self.model_trainer_config.trained_model_file_path,
