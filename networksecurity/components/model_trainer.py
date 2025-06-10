@@ -19,7 +19,11 @@ from sklearn.tree import DecisionTreeClassifier
 
 import mlflow
 import dagshub
-dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity', mlflow=True)  
+from dotenv import load_dotenv
+load_dotenv()
+
+dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity',
+              mlflow=True)
 
 
 
