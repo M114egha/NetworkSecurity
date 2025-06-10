@@ -1,4 +1,5 @@
 python-dotenv
+dill
 pandas
 numpy
 pymongo[srv]==4.13.0
