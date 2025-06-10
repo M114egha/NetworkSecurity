@@ -4,9 +4,12 @@ FROM python:3.10-slim
 # Set working directory
 WORKDIR /app
 
-# Install dependencies
+# Copy requirements first (to leverage Docker cache)
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+
+# Upgrade pip and reinstall all packages (including fixing dagshub version)
+RUN pip install --no-cache-dir --upgrade pip \
+ && pip install --no-cache-dir --force-reinstall -r requirements.txt
 
 # Copy all project files
 COPY . .
