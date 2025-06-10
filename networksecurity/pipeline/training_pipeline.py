@@ -74,8 +74,7 @@ class TrainingPipeline:
         
 
     
-
-        
+    
     def run_pipeline(self):
         try:
             logging.info(" Training pipeline started")  # Add this
@@ -88,7 +87,7 @@ class TrainingPipeline:
             logging.info("Data transformation completed")
             model_trainer_artifact = self.start_model_trainer(data_transformation_artifact)
             logging.info("Model training completed")
-
+            
             return model_trainer_artifact
         
         except Exception as e:
