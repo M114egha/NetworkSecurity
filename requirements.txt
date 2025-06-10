@@ -7,7 +7,7 @@ certifi
 scikit-learn
 mlflow
 pyyaml
-dagshub>=0.3.24
+dagshub==0.3.24
 
 fastapi
 dnspython>=2.0.0
