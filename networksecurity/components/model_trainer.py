@@ -1,5 +1,6 @@
 import os
 import sys
+import mlflow
 
 
 from networksecurity.exception.exception import NetworkSecurityException
@@ -17,13 +18,20 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import (RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier)
 from sklearn.tree import DecisionTreeClassifier
 
-import mlflow
+
 import dagshub
 from dotenv import load_dotenv
 load_dotenv()
 
-dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity',
-              mlflow=True)
+# Securely fetch token from environment
+dagshub_token = os.getenv("DAGSHUB_TOKEN")
+
+# Only proceed if token is available
+if not dagshub_token:
+    raise ValueError("DAGSHUB_TOKEN is not set. Please provide it via environment variable.")
+
+dagshub.auth.add_app_token(token=dagshub_token)
+dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity', mlflow=True)
 
 
 
