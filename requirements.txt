@@ -1,13 +1,13 @@
 python-dotenv
 pandas
 numpy
-pymongo
+pymongo[srv]==4.13.0
 certifi
-pymongo[srv]==3.6
 scikit-learn
 mlflow
-pyaml
+pyyaml
 dagshub
 fastapi
+dnspython>=2.0.0
 uvicorn
-#-e .
+# -e .   ← (keep this if you have a `setup.py` or `pyproject.toml` for local package installation)

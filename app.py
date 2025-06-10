@@ -61,4 +61,4 @@ async def train():
 
 
 if __name__ == "__main__":
-    app_run(api, host="localhost" , port=8000)
+    app_run(api, host="0.0.0.0" , port=8000)
