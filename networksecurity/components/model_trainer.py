@@ -30,8 +30,8 @@ dagshub_token = os.getenv("DAGSHUB_TOKEN")
 if not dagshub_token:
     raise ValueError("DAGSHUB_TOKEN is not set. Please provide it via environment variable.")
 
-dagshub.auth.add_app_token(token=dagshub_token)
-dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity', mlflow=True)
+
+dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity',token=dagshub_token, mlflow=True)
 
 
 
