@@ -1,20 +1,19 @@
-# Use an official Python image
 FROM python:3.10-slim
 
+# Set working directory
 WORKDIR /app
 
-# Copy requirements first to leverage Docker cache better
+# Install dependencies
 COPY requirements.txt .
-
-# Upgrade pip and FORCE dagshub reinstall
 RUN pip install --upgrade pip \
- && pip uninstall -y dagshub \
- && pip install --no-cache-dir dagshub==0.3.24 \
- && pip install --no-cache-dir -r requirements.txt
+ && pip install --no-cache-dir -r requirements.txt \
+ && pip install --force-reinstall dagshub==0.3.24
 
-# Now copy the rest of your code
+# Copy source code
 COPY . .
 
+# Expose FastAPI port
 EXPOSE 8000
 
+# Run FastAPI app
 CMD ["uvicorn", "app:api", "--host", "0.0.0.0", "--port", "8000"]

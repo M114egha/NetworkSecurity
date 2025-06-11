@@ -19,19 +19,17 @@ from sklearn.ensemble import (RandomForestClassifier, AdaBoostClassifier, Gradie
 from sklearn.tree import DecisionTreeClassifier
 
 
-import dagshub
-from dotenv import load_dotenv
-load_dotenv()
+import os
+from dagshub import dagshub
 
-# Securely fetch token from environment
+# Step 1: Ensure the token is available in environment variables
 dagshub_token = os.getenv("DAGSHUB_TOKEN")
 
-# Only proceed if token is available
-if not dagshub_token:
-    raise ValueError("DAGSHUB_TOKEN is not set. Please provide it via environment variable.")
+#  Step 2: Set the token in the environment (required for DagsHub auth)
+os.environ["DAGSHUB_TOKEN"] = dagshub_token
 
-
-dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity',token=dagshub_token, mlflow=True)
+#  Step 3: Initialize DagsHub tracking (without the token argument!)
+dagshub.init(repo_owner='meghabhairi114', repo_name='NetworkSecurity', mlflow=True)
 
 
 
