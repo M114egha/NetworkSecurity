@@ -1,7 +1,7 @@
 This project is an end-to-end machine learning pipeline built to detect phishing or malicious network activity from raw network traffic data. It is designed with modularity, scalability, and production-readiness in mind — covering the complete lifecycle from data ingestion to deployment.
 
 ## Project Structure
----
+```
 .
 ├── app.py                 # API endpoint using FastAPI
 ├── Dockerfile             # Docker setup
