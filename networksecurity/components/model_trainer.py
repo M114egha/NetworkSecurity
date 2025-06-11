@@ -20,15 +20,12 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 import os
-from dagshub import init as dagshub_init
+from dagshub import dagshub_logger
 
-# Step 1: Ensure the token is available in environment variables
-dagshub_token = os.getenv("DAGSHUB_TOKEN")
-
-#  Step 2: Set the token in the environment (required for DagsHub auth)
-os.environ["DAGSHUB_TOKEN"] = dagshub_token
-
-dagshub_init(repo_owner='meghabhairi114', repo_name='NetworkSecurity', mlflow=True)
+# Only initialize Dagshub if DAGSHUB_TOKEN is present
+if os.getenv("DAGSHUB_TOKEN"):
+    from dagshub import init as dagshub_init
+    dagshub_init(repo_owner="meghabhairi114", repo_name="NetworkSecurity", mlflow=True)
 
 
 
