@@ -20,7 +20,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 import os
-from dagshub import dagshub
+from dagshub import init
 
 # Step 1: Ensure the token is available in environment variables
 dagshub_token = os.getenv("DAGSHUB_TOKEN")
