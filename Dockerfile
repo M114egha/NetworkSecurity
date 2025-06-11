@@ -9,6 +9,9 @@ RUN pip install --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt \
  && pip install --force-reinstall dagshub==0.3.24
 
+# Copy .env file early so it’s available before code runs
+COPY .env .env
+
 # Copy source code
 COPY . .
 

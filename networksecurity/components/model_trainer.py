@@ -18,14 +18,28 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import (RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier)
 from sklearn.tree import DecisionTreeClassifier
 
-
 import os
-from dagshub import dagshub_logger
+from dotenv import load_dotenv
 
-# Only initialize Dagshub if DAGSHUB_TOKEN is present
-if os.getenv("DAGSHUB_TOKEN"):
-    from dagshub import init as dagshub_init
-    dagshub_init(repo_owner="meghabhairi114", repo_name="NetworkSecurity", mlflow=True)
+# ✅ Load environment variables from .env
+load_dotenv()
+
+# ✅ Make sure DAGSHUB_TOKEN is in the environment
+token = os.getenv("DAGSHUB_TOKEN")
+if not token:
+    raise ValueError("DAGSHUB_TOKEN not found in environment!")
+
+os.environ["DAGSHUB_TOKEN"] = token
+
+# ✅ Now safely import dagshub
+from dagshub import init as dagshub_init
+
+dagshub_init(repo_owner="meghabhairi114", repo_name="NetworkSecurity", mlflow=True)
+
+
+
+
+
 
 
 
